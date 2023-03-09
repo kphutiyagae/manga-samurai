@@ -117,3 +117,8 @@ export interface IMangaResponse {
 }
 
 export interface IError {}
+
+export interface IMangaStatisticsResponse {
+    result: string;
+    statistics: string;
+}
