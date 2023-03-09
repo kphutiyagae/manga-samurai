@@ -1,5 +1,13 @@
 import ky from 'ky';
-import { IMangaResponse, IError, IManga, IMangaListResponse } from '../types/types';
+import {
+  IMangaResponse,
+  IManga,
+  IMangaListResponse,
+  IMangaStatistics,
+  IMangaStatisticsResponse,
+  IStatisticsObject,
+  IStatisticsResponse
+} from '../types/types';
 
 import { mangaUrl, statisticsUrl, mangaCoversUrl } from './apiRoutes';
 
@@ -15,9 +23,11 @@ export async function getManga(mangaId: string): Promise<IManga> {
   return mangaResponse.data;
 }
 
-export async function getMangaStatistics(mangaId: string) {
-  const mangaStatsResponse: IMangaResponse = await ky(`${statisticsUrl}/manga/${mangaId}`).json();
-  return mangaStatsResponse.data;
+export async function getMangaStatistics(mangaId: string): Promise<IMangaStatistics> {
+  const mangaStatsResponse: IStatisticsResponse = await ky(
+    `${statisticsUrl}/manga/${mangaId}`
+  ).json();
+  return mangaStatsResponse?.statistics?.statistics;
 }
 
 export async function getMangaChapterList(mangaId: string): Promise<IManga[]> {

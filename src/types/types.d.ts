@@ -122,3 +122,43 @@ export interface IMangaStatisticsResponse {
     result: string;
     statistics: string;
 }
+
+    export interface IMangaComments {
+        threadId: number;
+        repliesCount: number;
+    }
+
+    export interface IStatsDistribution {
+        1: number;
+        2: number;
+        3: number;
+        4: number;
+        5: number;
+        6: number;
+        7: number;
+        8: number;
+        9: number;
+        10: number;
+    }
+
+    export interface IMangaRating {
+        average: number;
+        bayesian: number;
+        distribution: IStatsDistribution;
+    }
+
+    export interface IMangaStatistics {
+        comments: IMangaComments;
+        rating: IMangaRating;
+        follows: number;
+    }
+
+    export interface IStatisticsObject {
+        statistics: IMangaStatistics;
+    }
+
+    export interface IStatisticsResponse {
+        result: string;
+        statistics: IStatisticsObject;
+    }
+
