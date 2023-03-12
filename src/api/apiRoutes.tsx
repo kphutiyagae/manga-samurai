@@ -10,4 +10,6 @@ const statisticsUrl = `${baseUrl}/statistics`;
 
 const mangaCoversUrl = 'https://uploads.mangadex.org/covers';
 
-export { mangaUrl, userUrl, ratingUrl, statisticsUrl, mangaCoversUrl };
+export {
+  mangaUrl, userUrl, ratingUrl, statisticsUrl, mangaCoversUrl,
+};
