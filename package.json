@@ -11,7 +11,10 @@
     "tailwind-watch": "npx tailwindcss -i ./src/stylesheets/index.css -o ./dist/stylesheets/main.css --watch"
   },
   "dependencies": {
+    "@types/react-content-loader": "^4.0.0",
+    "antd": "^5.3.1",
     "react": "^18.2.0",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
