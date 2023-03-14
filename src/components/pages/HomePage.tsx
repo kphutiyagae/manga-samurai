@@ -1,12 +1,10 @@
-import React from 'react'
-import { IHomeProps } from '../../types/types'
-import { ListCard } from '../UI/atoms/ListCard'
-import { ListComponent } from '../UI/molecules/ListComponent'
-import { NavigationBar } from '../UI/molecules/NavigationBar'
-import { PageSection } from '../UI/organisms/PageSection'
+import React from 'react';
+import { IHomeProps } from '../../types/types';
+import { ListComponent } from '../UI/molecules/ListComponent';
+import { NavigationBar } from '../UI/molecules/NavigationBar';
+import { PageSection } from '../UI/organisms/PageSection';
 
-
-export function HomePage(props : IHomeProps){
+export function HomePage({} : IHomeProps) {
   return (
     <div className='w-full h-full bg-background-color'>
       <NavigationBar />
@@ -19,5 +17,5 @@ export function HomePage(props : IHomeProps){
       />
       </PageSection>
     </div>
-  )
+  );
 }

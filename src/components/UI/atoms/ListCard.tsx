@@ -1,23 +1,20 @@
-import React from 'react'
-import { IListCardProps } from '../../../types/types'
-import {Progress} from 'antd';
-import {AiOutlineRight} from 'react-icons/ai'
+import React from 'react';
+import { Progress } from 'antd';
+import { AiOutlineRight } from 'react-icons/ai';
+import { IListCardProps } from '../../../types/types';
 
 export const ListCard = ({
-    image,
-    styles,
-    cardTitle,
-    cardSubtitle,
-    progressPercentage,
-    onClick
-}: IListCardProps) => {
-
-  return (
-    <div 
+  styles,
+  cardTitle,
+  cardSubtitle,
+  progressPercentage,
+  onClick,
+}: IListCardProps) => (
+    <div
     onClick={onClick}
-    className={styles.concat(" w-full flex flex-row p-4 justify-between hover:bg-primary-color-hover active:bg-primary-color-highlight transition duration-100 ease-in-out")}>
+    className={styles.concat(' w-full flex flex-row p-4 justify-between hover:bg-primary-color-hover active:bg-primary-color-highlight transition duration-100 ease-in-out')}>
     <img
-    src={"placeholder"}
+    src={'placeholder'}
     className='w-28 mr-1'
     width={80}
     height={80}
@@ -33,5 +30,4 @@ export const ListCard = ({
         />
     </div>
     </div>
-  )
-}
+);

@@ -1,7 +1,7 @@
-import React from 'react'
-import { INavigationBarProps } from '../../../types/types'
-import { CustomButton } from '../atoms/CustomButton'
-import {GiHamburgerMenu} from 'react-icons/gi';
+import React from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { INavigationBarProps } from '../../../types/types';
+import { CustomButton } from '../atoms/CustomButton';
 
 export function NavigationBar(props: INavigationBarProps) {
   return (
@@ -16,10 +16,10 @@ export function NavigationBar(props: INavigationBarProps) {
         </CustomButton>
         <CustomButton
         type='primary'
-        classStyles='ml-28'        
+        classStyles='ml-28'
         >
             Logo
         </CustomButton>
     </div>
-  )
+  );
 }
