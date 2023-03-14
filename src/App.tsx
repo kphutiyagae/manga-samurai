@@ -1,10 +1,15 @@
 import './App.css'
-
+import { HomePage } from './components/pages/HomePage'
 function App() {
   return (
-    <div className="App">
-    </div>
-  )
+    <HomePage />
+    )
 }
 
 export default App
+
+/*
+
+<div className="App">
+</div>
+*/
