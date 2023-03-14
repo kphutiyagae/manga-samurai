@@ -10,10 +10,10 @@ export const PageSection = ({
 }: IPageSectionProps) => {
     return (
     <div className={styles}>
-        <div className='bg-red-500'>
-        <h2 className='text-3xl pl-5 pt-3 h-1/3 font-semibold'>{sectionTitle}</h2>
+        <div className='h-1/4 pb-4'>
+        <h2 className='text-3xl pl-5 pt-3 font-semibold'>{sectionTitle}</h2>
         </div>
-        <div className='bg-green-400 h-full'>
+        <div className='h-3/4'>
             {children}
         </div>
     </div>)

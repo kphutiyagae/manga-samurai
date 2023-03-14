@@ -22,3 +22,18 @@ export interface IPageSectionProps {
     children: React.ReactNode;
     styles: string;
 }
+
+export interface IListComponent {
+    children?: React.ReactNode;
+    skeletonLoader?: React.ReactNode;
+    styles: string;
+}
+
+export interface IListCardProps {
+    image?: Blob;
+    styles: string;
+    cardTitle:string;
+    cardSubtitle?:string;
+    progressPercentage?: number;
+    onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
+}
