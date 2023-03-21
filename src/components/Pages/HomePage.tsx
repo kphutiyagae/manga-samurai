@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QueryClient, useQuery, useQueryClient } from '@tanstack/react-query';
+import {useQuery} from '@tanstack/react-query';
 import { getMangaList } from '../../api/apiService';
 import { IManga } from '../../types/types';
 

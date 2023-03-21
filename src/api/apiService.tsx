@@ -45,6 +45,14 @@ export async function getMangaCover(mangaId: string, mangaCoverId: string): Prom
 }
 
 export async function searchManga(searchQuery: string): Promise<IManga[]> {
-  const searchResult: IMangaListResponse = await ky(`${mangaUrl}?${searchQuery}`).json();
+  console.log("Query: ", searchQuery)
+  if(searchQuery == undefined || searchQuery.length == 0) return [];
+  
+  const searchResult: IMangaListResponse = await ky(`${mangaUrl}?title=${searchQuery}`).json();
   return createMangaList(searchResult.data) as IManga[];
+}
+
+export async function getMangaCategoryList(category:string): Promise<IManga[]> {
+  const mangaListResponse: IMangaListResponse = await ky(`${mangaUrl}?includes[]=cover_art&${category}`).json();
+  return createMangaList(mangaListResponse.data) as IManga[];
 }
