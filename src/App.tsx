@@ -7,7 +7,9 @@ import SearchPage from './components/pages/SearchPage';
 
 function App() {
   return (
-    <HomePage />
+    <div className='h-screen'>
+      <HomePage />
+    </div>
   );
 }
 

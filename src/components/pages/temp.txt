@@ -1,0 +1,25 @@
+      
+      <PageSection
+      sectionTitle='Trending'
+      styles='h-1/3 mb-4'
+      >
+      <ListComponent
+      styles=''
+      />
+      </PageSection>
+      <PageSection
+      sectionTitle='Continue Reading'
+      styles='h-1/3 mb-4'
+      >
+      <ListComponent
+      styles=''
+      />
+      </PageSection>
+      <PageSection
+      sectionTitle='Favourites'
+      styles='h-1/3 mb-4'
+      >
+      <ListComponent
+      styles=''
+      />
+      </PageSection>

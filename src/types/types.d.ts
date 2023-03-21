@@ -227,3 +227,16 @@ export interface ISearchListCardProps {
   styles?:string
   onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
 }
+
+export interface IHorizontalScrollContainerProps {
+  data?: IManga[];
+}
+
+export interface IGridCardProps {
+  title:string;
+  image?:string;
+  id:string;
+  status?:string;
+  contentRating?:string;
+  styles?:string;
+}

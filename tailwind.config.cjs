@@ -9,6 +9,9 @@ module.exports = {
         "primary-color-highlight": "#A4031F",
         "primary-color-hover": "#FEEBEE",
         "background-color-dark": "#19323C"
+      },
+      gridTemplateRows : {
+        '12': 'repeat(12, minmax(min-content, 1fr))'
       }
     },
   },
