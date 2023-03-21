@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/react-content-loader": "^4.0.0",
     "antd": "^5.3.1",
     "ky": "^0.33.2",

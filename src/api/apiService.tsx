@@ -12,13 +12,13 @@ import {
 import { mangaUrl, statisticsUrl, mangaCoversUrl } from './apiRoutes';
 
 export async function getMangaList(): Promise<IManga[]> {
-  const mangaListResponse: IMangaListResponse = await ky(`${mangaUrl}?includes[]=cover_art`).json();
+  const mangaListResponse: IMangaListResponse = await ky(`${mangaUrl}?includes[]=cover_art&contentRating[]=safe`).json();
   return createMangaList(mangaListResponse.data) as IManga[];
 }
 
 export async function getManga(mangaId: string): Promise<IManga> {
   const mangaResponse: IMangaResponse = await ky(
-    `${mangaUrl}/${mangaId}?includes[]=cover_art`,
+    `${mangaUrl}/${mangaId}?includes[]=cover_art&rating=safe`,
   )
     .json();
   return createManga(mangaResponse.data) as IManga;
@@ -39,9 +39,8 @@ export async function getMangaChapterList(mangaId: string): Promise<IManga[]> {
   return createMangaList(mangaChapterListResponse.data) as IManga[];
 }
 
-export async function getMangaCover(mangaId: string, mangaCoverId: string): Promise<Blob> {
-  const mangaCoverResponse: Blob = await ky(`${mangaCoversUrl}/${mangaId}/${mangaCoverId}`).blob();
-  return mangaCoverResponse;
+export function getMangaCoverUrl(manga: IManga): string{
+  return `${mangaCoversUrl}/${manga?.id}/${manga?.relationships?.[2].attributes?.fileName}`;
 }
 
 export async function searchManga(searchQuery: string): Promise<IManga[]> {

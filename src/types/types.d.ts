@@ -196,13 +196,34 @@ export interface IListComponent {
   children?: React.ReactNode;
   skeletonLoader?: React.ReactNode;
   styles: string;
+  listData?: IManga[];
 }
 
 export interface IListCardProps {
-  image?: Blob;
+  image?: string;
   styles: string;
   cardTitle:string;
   cardSubtitle?:string;
   progressPercentage?: number;
+  onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  mangaRating: string;
+}
+
+export interface IMangaRatingPill {
+  rating: string;
+  styles?: string;
+}
+
+export interface IMangaCategoryPageProps {
+  category: string;
+}
+
+export interface ISearchListCardProps {
+  title:string;
+  status?:string;
+  image?:string;
+  id:string;
+  contentRating?:string;
+  styles?:string
   onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
 }
