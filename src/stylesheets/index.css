@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body, #root {
+	padding: 0;
+	margin: 0;
+	height: 100;
+}
+
+html {
+	box-sizing: border-box;
+	height: 100vh;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+#root {
+	height: 100%;
+}
+
+.logo {
+	font-family: "Lexend Deca", sans-serif;
+	letter-spacing: -1px;
+}
+
+.list-component__item > h3 {
+	font-family: "Rubik Mono One", sans-serif;
+}
+
+.list-component__item > p {
+	font-family: "Questrial", sans-serif;
+}
