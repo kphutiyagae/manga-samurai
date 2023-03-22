@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/extensions */
 import { useQuery } from '@tanstack/react-query';
 import {
@@ -29,7 +30,7 @@ function MangaInfoPage() {
     },
   });
 
-  const { isLoadingFeed, isErrorFeed } = useQuery({
+  const mangaFeed = useQuery({
     queryKey: ['mangaFeed'],
     queryFn: () => getMangaChapterList(mangaId as string),
     onSuccess: (data) => {

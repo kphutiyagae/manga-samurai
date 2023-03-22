@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/extensions */
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
@@ -15,7 +16,7 @@ function HomePage() {
 
   const isMobile = true;
 
-  const { isLoadingTrending, isErrorTrending } = useQuery({
+  const { isLoading, isError } = useQuery({
     queryKey: ['mangaListTrendingData'],
     queryFn: () => getMangaCategoryList(getMangaCategory('trending')),
     onSuccess: (mangaList) => {
@@ -25,7 +26,7 @@ function HomePage() {
     },
   });
 
-  const { isLoadingNewRelease, isErrorNewRelease } = useQuery({
+  const newReleases = useQuery({
     queryKey: ['mangaListNewReleaseData'],
     queryFn: () => getMangaCategoryList(getMangaCategory('newreleases')),
     onSuccess: (mangaList) => {
@@ -35,7 +36,7 @@ function HomePage() {
     },
   });
 
-  const { isLoadingTopRated, isErrorTopRated } = useQuery({
+  const topRated = useQuery({
     queryKey: ['mangaListTopRatedData'],
     queryFn: () => getMangaCategoryList(getMangaCategory('toprated')),
     onSuccess: (mangaList) => {
@@ -44,10 +45,6 @@ function HomePage() {
       }
     },
   });
-
-  const isLoading: boolean = isLoadingNewRelease || isLoadingTopRated || isLoadingTrending;
-
-  const isError: boolean = isErrorNewRelease || isErrorTopRated || isErrorTrending;
 
   if (isLoading) {
     return <span>Loading......</span>;

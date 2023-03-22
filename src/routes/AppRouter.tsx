@@ -1,10 +1,11 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import HomePage from '../components/Pages/HomePage';
-import MangaInfoPage from '../components/Pages/MangaInfoPage';
+import HomePage from '../components/pages/HomePage';
+import MangaInfoPage from '../components/pages/MangaInfoPage';
 import MangaSectionPage from '../components/pages/MangaSectionPage';
-import ReadMangaPage from '../components/Pages/ReadMangaPage';
-import SearchPage from '../components/Pages/SearchPage';
+import ReadMangaPage from '../components/pages/ReadMangaPage';
+import SearchPage from '../components/pages/SearchPage';
 import Root from '../Root';
 
 const appRouter = createBrowserRouter([
