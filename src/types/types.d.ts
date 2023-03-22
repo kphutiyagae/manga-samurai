@@ -188,8 +188,9 @@ export interface ICustomButtonProps {
 export interface IPageSectionProps {
   sectionTitle: string;
   floatingPill?:React.ReactNode;
-  children: React.ReactNode;
+  data?: IManga[];
   styles: string;
+  isMobile?: boolean;
 }
 
 export interface IListComponent {
@@ -212,10 +213,6 @@ export interface IListCardProps {
 export interface IMangaRatingPill {
   rating: string;
   styles?: string;
-}
-
-export interface IMangaCategoryPageProps {
-  category: string;
 }
 
 export interface ISearchListCardProps {

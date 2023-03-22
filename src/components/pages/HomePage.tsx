@@ -1,50 +1,67 @@
+/* eslint-disable import/extensions */
+import { useQuery } from '@tanstack/react-query';
 import { List, Skeleton } from 'antd';
-import React from 'react';
-import { useState } from 'react';
-import { getMangaCoverUrl } from '../../api/apiService';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getMangaCoverUrl, getMangaList } from '../../api/apiService';
 import { apiData } from '../../api/mock/apiData';
-import { IHomeProps, IManga, IMangaListResponse} from '../../types/types';
+import { IHomeProps, IManga, IMangaListResponse } from '../../types/types';
 import { ListCard } from '../UI/atoms/ListCard';
 import HorizontalScrollContainer from '../UI/molecules/HorizontalScrollContainer';
 import { ListComponent } from '../UI/molecules/ListComponent';
 import { NavigationBar } from '../UI/molecules/NavigationBar';
-import { PageSection } from '../UI/organisms/PageSection';
+import PageSection from '../UI/organisms/PageSection';
 
-export function HomePage({} : IHomeProps) {
+function HomePage() {
+  const [mangaListData, setMangaListData] = useState<IManga[]>([]);
 
-  const [data, setData] = useState<IMangaListResponse>(apiData)
-  
-  const isMobile = false;
+  const isMobile = true;
 
-  console.log(data)
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ['mangaList'],
+    queryFn: () => getMangaList(),
+    onSuccess: (mangaList) => {
+      if (mangaList !== undefined) {
+        setMangaListData(mangaList);
+      }
+    },
+  });
+
+  if (isLoading) {
+    return <span>Loading......</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {isError}</span>;
+  }
+
   return (
+    <>
     <div className='w-full h-full bg-background-color md:grid md:grid-cols-12 md:grid-rows-12'>
-        <NavigationBar/>
         <PageSection
-      sectionTitle='New Releases'
-      styles='h-2/5 md:h-auto mb-4 md:row-start-2 md:row-end-6 md:col-start-1 md:col-end-13 bg-red-800'
-      >
-      { isMobile ? (
-
-<List
-dataSource={data.data.slice(0,3)}
-className='overflow-auto h-2/3'
-renderItem={ (manga: IManga) => {
-  return <ListCard 
-        cardTitle={manga?.attributes?.title?.en as string}
-        onClick={ () => console.log(`clicked: ${manga?.attributes?.title?.en}`)}
-        cardSubtitle={`Chapters: ${manga?.attributes?.lastChapter}`}
-        progressPercentage={40}
-        styles='p-1'
-        image={getMangaCoverUrl(manga)}
-        mangaRating={manga?.attributes?.contentRating as string}
-  />
-}}
-/>
-      ) : (
-        <HorizontalScrollContainer data={data.data.slice(0,10)}/>
-      ) }
-      </PageSection>
+        sectionTitle='Trending'
+        styles='h-2/5 md:h-auto mb-4 md:row-start-2 md:row-end-6 md:col-start-1 md:col-end-13'
+        floatingPill={<div><Link to='/section/trending'></Link></div>}
+        data={mangaListData}
+        isMobile={isMobile}
+        />
+        <PageSection
+        sectionTitle='New Releases'
+        styles='h-2/5 md:h-auto mb-4 md:row-start-2 md:row-end-6 md:col-start-1 md:col-end-13'
+        floatingPill={<div><Link to='/section/newreleases'></Link></div>}
+        data={mangaListData}
+        isMobile={isMobile}
+        />
+        <PageSection
+        sectionTitle='Top Rated'
+        floatingPill={<div><Link to='/section/toprated'></Link></div>}
+        styles='h-2/5 md:h-auto mb-4 md:row-start-2 md:row-end-6 md:col-start-1 md:col-end-13'
+        data={mangaListData}
+        isMobile={isMobile}
+        />
     </div>
+    </>
   );
 }
+
+export default HomePage;

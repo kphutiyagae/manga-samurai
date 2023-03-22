@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '../components/Pages/HomePage';
+import MangaCategoryPage from '../components/pages/MangaCategoryPage';
 import MangaInfoPage from '../components/Pages/MangaInfoPage';
-import MangaSectionPage from '../components/Pages/MangaSectionPage';
 import ReadMangaPage from '../components/Pages/ReadMangaPage';
 import SearchPage from '../components/Pages/SearchPage';
 import Root from '../Root';
@@ -20,7 +20,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: 'section/:mangaSection',
-        element: <MangaSectionPage/>,
+        element: <MangaCategoryPage/>,
         errorElement: <div>Manga Section Error</div>,
       },
       {
