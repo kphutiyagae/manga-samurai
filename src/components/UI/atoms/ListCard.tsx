@@ -11,7 +11,7 @@ export const ListCard = ({
   progressPercentage,
   onClick,
   mangaRating,
-  image
+  image,
 }: IListCardProps) => (
     <div
     onClick={onClick}
@@ -24,8 +24,8 @@ export const ListCard = ({
     alt={`Manga cover art for ${cardTitle}`}
     />
     <div className='w-56 p-3'>
-    <h3>{cardTitle}</h3>
-    <p>{cardSubtitle}</p>
+    <h3 className='text-lg font-semibold line-clamp-1'>{cardTitle}</h3>
+    <p className='font-semibold'>{cardSubtitle}</p>
 
     {progressPercentage ? <Progress percent={progressPercentage}></Progress> : null }
     <MangaRatingPill

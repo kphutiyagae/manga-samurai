@@ -237,3 +237,38 @@ export interface IGridCardProps {
   contentRating?:string;
   styles?:string;
 }
+
+export interface IMangaChapterResponse {
+  result: string
+  response: string
+  data: IMangaChapter[]
+  limit: number
+  offset: number
+  total: number
+}
+
+export interface IMangaChapter {
+  id: string
+  type: string
+  attributes: IChapterAttributes
+  relationships: IChapterRelationship[]
+}
+
+export interface IChapterAttributes {
+  volume: string
+  chapter: string
+  title: string
+  translatedLanguage: string
+  externalUrl: unknown
+  publishAt: string
+  readableAt: string
+  createdAt: string
+  updatedAt: string
+  pages: number
+  version: number
+}
+
+export interface IChapterRelationship {
+  id: string
+  type: string
+}

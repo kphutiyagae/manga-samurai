@@ -16,6 +16,22 @@ export function getMangaCategory(urlCategory: string): string {
   }
 }
 
+export function getMangaCategoryPage(urlCategory: string): string {
+  switch (urlCategory.toLowerCase()) {
+    case 'trending':
+      return 'Trending';
+
+    case 'newreleases':
+      return 'New Releases';
+
+    case 'toprated':
+      return 'Top Rated';
+
+    default:
+      return 'none';
+  }
+}
+
 export function getMangaSectionName(category:string):string {
   if (category === undefined) return '';
   return category.toLowerCase().replaceAll(' ', '');

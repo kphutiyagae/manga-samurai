@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
 
-// see https://github.com/tannerlinsley/react-query/issues/293
-// see https://usehooks.com/useDebounce/
-export default function useDebounce(value: string, delay: number) {
-  
+function useDebounce(value:unknown, delay:number) {
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -21,8 +18,9 @@ export default function useDebounce(value: string, delay: number) {
         clearTimeout(handler);
       };
     },
-    [value, delay] // Only re-call effect if value or delay changes
+    [value, delay], // Only re-call effect if value or delay changes
   );
 
   return debouncedValue;
 }
+export default useDebounce;

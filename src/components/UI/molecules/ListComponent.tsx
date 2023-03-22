@@ -7,8 +7,8 @@ export const ListComponent = ({
   listData,
 }: IListComponent) => (
         <List dataSource={listData} className={`${styles} h-full overflow-auto`}
-    
+
         >
-          
+
         </List>
 );

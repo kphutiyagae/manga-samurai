@@ -37,7 +37,11 @@ function PageSection({
           />
 
         )
-        : (<HorizontalScrollContainer data={data}/>)
+        : (
+          <div className='bg-blue-800'>
+          <HorizontalScrollContainer data={data}/>
+          </div>
+        )
       }
     </div>
     <div className='flex justify-center w-full p-3 cursor-pointer '>
