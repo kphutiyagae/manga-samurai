@@ -168,3 +168,107 @@ export interface IRelationshipAttributes {
   updatedAt: Date;
   version: number;
 }
+
+export interface IHomeProps {
+}
+
+export interface INavigationBarProps {
+
+}
+
+export interface ICustomButtonProps {
+  type: 'link' | 'text' | 'ghost' | 'default' | 'primary' | 'dashed' | undefined;
+  classStyles?: string;
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  isDisabled?: boolean;
+  children?: React.ReactNode;
+  themeColor?: 'light' | 'dark';
+}
+
+export interface IPageSectionProps {
+  sectionTitle: string;
+  floatingPill?:React.ReactNode;
+  data?: IManga[];
+  styles: string;
+  isMobile?: boolean;
+}
+
+export interface IListComponent {
+  children?: React.ReactNode;
+  skeletonLoader?: React.ReactNode;
+  styles: string;
+  listData?: IManga[];
+}
+
+export interface IListCardProps {
+  image?: string;
+  styles: string;
+  cardTitle:string;
+  cardSubtitle?:string;
+  progressPercentage?: number;
+  onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  mangaRating: string;
+}
+
+export interface IMangaRatingPill {
+  rating: string;
+  styles?: string;
+}
+
+export interface ISearchListCardProps {
+  title:string;
+  status?:string;
+  image?:string;
+  id:string;
+  contentRating?:string;
+  styles?:string
+  onClick: (event?: React.MouseEvent<HTMLDivElement>) => void;
+}
+
+export interface IHorizontalScrollContainerProps {
+  data?: IManga[];
+}
+
+export interface IGridCardProps {
+  title:string;
+  image?:string;
+  id:string;
+  status?:string;
+  contentRating?:string;
+  styles?:string;
+}
+
+export interface IMangaChapterResponse {
+  result: string
+  response: string
+  data: IMangaChapter[]
+  limit: number
+  offset: number
+  total: number
+}
+
+export interface IMangaChapter {
+  id: string
+  type: string
+  attributes: IChapterAttributes
+  relationships: IChapterRelationship[]
+}
+
+export interface IChapterAttributes {
+  volume: string
+  chapter: string
+  title: string
+  translatedLanguage: string
+  externalUrl: unknown
+  publishAt: string
+  readableAt: string
+  createdAt: string
+  updatedAt: string
+  pages: number
+  version: number
+}
+
+export interface IChapterRelationship {
+  id: string
+  type: string
+}

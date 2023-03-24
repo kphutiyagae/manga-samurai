@@ -301,4 +301,5 @@ function createMangaList(mangaListResponse: IManga[]) {
   });
   return mangaList;
 }
+
 export { createManga, createMangaList, createStatisticsObject };
